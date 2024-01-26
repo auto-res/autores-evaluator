@@ -14,7 +14,7 @@ class AutoEvaluate():
         pass
 
     def _select_dataset(self):
-        if self.task_type == 'tabledata classification':
+        if self.task_type == 'tabledata binary classification':
             self.tabledata = retrieve_titanicdata()
             self.binary_classification = binary_classification
             pass

@@ -9,7 +9,6 @@
 import numpy as np
 from sklearn.metrics import f1_score, accuracy_score, log_loss
 from sklearn.metrics import roc_auc_score, precision_recall_curve, auc
-from sklearn.metrics import precision_score, recall_score
 
 
 def binary_classification(y_test, y_prob):
