@@ -6,17 +6,21 @@ class AutoEvaluate():
     def __init__(
             self,
             task_type = None,
+            dataset_name = None,
             model_path = None
             ) -> None:
         self.task_type = task_type
+        self.dataset_name = dataset_name
         self.model_path = model_path
         self.tabledata = None
+        self.metrix = None
         pass
 
     def _select_dataset(self):
         if self.task_type == 'tabledata binary classification':
-            self.tabledata = retrieve_titanicdata()
-            self.binary_classification = binary_classification
+            if self.dataset_name == 'titanic':
+                self.tabledata = retrieve_titanicdata()
+                self.metrix = binary_classification
             pass
         elif self.task_type == 'tabledata regression':
             pass
