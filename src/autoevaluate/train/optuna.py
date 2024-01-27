@@ -10,9 +10,9 @@ def set_trial_params(trial, params):
         if isinstance(value, dict):
             if 'type' in value and 'args' in value:
                 param_type = value['type']
-                if param_type == 'loguniform':
-                    optuna_params[key] = trial.suggest_loguniform(key, *value['args'])
-                elif param_type == 'uniform':
+                if param_type == 'log_float':
+                    optuna_params[key] = trial.suggest_float(key, *value['args'], log=True)
+                elif param_type == 'float':
                     optuna_params[key] = trial.suggest_float(key, *value['args'])
                 elif param_type == 'int':
                     optuna_params[key] = trial.suggest_int(key, *value['args'])
