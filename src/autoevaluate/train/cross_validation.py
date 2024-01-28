@@ -5,7 +5,7 @@ from .model_template import model_template
 result_logger, _ = setup_logging()
 
 def exec_cross_validation(model, dataset, metrix, params, valuation_index):
-    result_logger.info('------cross_validataion------')
+    result_logger.info('------Cross validataion------')
     X = dataset.drop(columns=['target']).values
     y = dataset['target'].values
 

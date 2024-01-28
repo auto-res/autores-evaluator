@@ -37,6 +37,7 @@ def create_objective(model, dataset, metric, params, valuation_index):
 
 
 def exec_optuna(model, dataset, metric, params, valuation_index, objective):
+    result_logger.info('------Optuna start------')
     study = optuna.create_study(direction=objective)
     objective = create_objective(model, dataset, metric, params, valuation_index)
     study.optimize(objective, n_trials=100)
