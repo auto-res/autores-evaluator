@@ -50,3 +50,21 @@ def binary_classification(y_test, y_prob, valuation_index):
         return pr_auc
     else:
         raise ValueError(f'valuation_index: {valuation_index} is not defined')
+
+
+def binary_classification_objective(valuation_index):
+    if valuation_index == 'f1_score':
+        return 'maximize'
+    elif valuation_index == 'accuracy':
+        return 'maximize'
+    elif valuation_index == 'logloss':
+        return 'minimize'
+    elif valuation_index == 'roc_auc':
+        return 'maximize'
+    elif valuation_index == 'precision':
+        return 'maximize'
+    elif valuation_index == 'recall':
+        return 'maximize'
+    elif valuation_index == 'pr_auc':
+        return 'maximize'
+

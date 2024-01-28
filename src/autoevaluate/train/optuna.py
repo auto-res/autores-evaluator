@@ -36,9 +36,10 @@ def create_objective(model, dataset, metric, params, valuation_index):
     return objective
 
 
-def exec_optuna(model, dataset, metric, params, valuation_index):
-    study = optuna.create_study(direction='maximize')
+def exec_optuna(model, dataset, metric, params, valuation_index, objective):
+    study = optuna.create_study(direction=objective)
     objective = create_objective(model, dataset, metric, params, valuation_index)
     study.optimize(objective, n_trials=100)
     result_logger.info(f'Best params:{study.best_params}')
+    result_logger.info(f'Best score:{study.best_value}')
     return

@@ -17,10 +17,7 @@ def model_template(path, X_train, y_train, X_test, params):
         return y_pred
     except Exception as e:
         model_logger.error(f'error: {e}')
-    else:
-        model_logger.info('エラーは発生しませんでした')
-    finally:
-        # 例外の発生に関わらず実行されるコード
+
         pass
 
 

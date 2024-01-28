@@ -1,12 +1,12 @@
-import time
-import os
 from .utils.log_config import setup_logging
 
 from .dataset.tabledata.titanic.preprocessing import titanic_data
-from .metrix.binary_classification import binary_classification
+from .metrix.binary_classification import binary_classification, binary_classification_objective
 
-from .train.cross_validation import exec_cross_validation
 from .train.optuna import exec_optuna
+from .utils.log_config import setup_logging
+
+result_logger, _ = setup_logging()
 
 
 class AutoEvaluate():
@@ -23,6 +23,7 @@ class AutoEvaluate():
         self.model_path = model_path
         self.params = params
         self.valuation_index = valuation_index
+        self.objective = binary_classification_objective(self.valuation_index)
         self._select_dataset()
         pass
 
@@ -40,12 +41,12 @@ class AutoEvaluate():
             pass
 
     def exec(self):
-        result_logger, _ = setup_logging()
         #os.makedirs(directory, exist_ok=True)
-        #logger = setup_logging()
+        result_logger.info('------auto evaluate start------')
         result_logger.info(f'task type: {self.task_type}')
         result_logger.info(f'dataset name: {self.dataset_name}')
         result_logger.info(f'model path: {self.model_path}')
-        #exec_cross_validation(self.model_path, self.dataset, self.metrix)
-        exec_optuna(self.model_path, self.dataset, self.metrix, self.params, self.valuation_index)
+        result_logger.info(f'valuation_index: {self.valuation_index}')
+        result_logger.info(f'objective: {self.objective}')
+        exec_optuna(self.model_path, self.dataset, self.metrix, self.params, self.valuation_index, self.objective)
         pass
