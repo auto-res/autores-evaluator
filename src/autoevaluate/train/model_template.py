@@ -33,9 +33,9 @@ def load_method_from_path(path, method_name = 'model'):
         spec.loader.exec_module(module)
 
         method = getattr(module, method_name, None)
-        model_logger.info('メソッドが正常にインポートされました')
         if method is None:
             raise model_logger.error(f"Method {method_name} not found in {path}")
+        model_logger.info('メソッドが正常にインポートされました')
 
     except Exception as e:
         model_logger.error(f"Error importing method {method_name} from {path}: {e}")
