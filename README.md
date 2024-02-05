@@ -45,7 +45,7 @@ are.exec()
 
 ## Output
 - result.log
-File to output the results
+    - File to output the results
 
 - model_error.log
-File to write errors in model files
+    - File to write errors in model files
