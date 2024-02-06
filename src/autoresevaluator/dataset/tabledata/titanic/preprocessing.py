@@ -10,5 +10,6 @@ def titanic_data():
     categorical_columns = ['sex', 'class', 'embarked', 'who', 'deck', 'embark_town', 'alive', 'alone']
     df_encoded = pd.get_dummies(df, columns=categorical_columns)
     df_encoded = df_encoded.rename(columns={'survived': 'target'})
+    df_encoded = df_encoded.astype(float)
 
     return df_encoded

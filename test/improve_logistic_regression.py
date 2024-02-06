@@ -21,7 +21,7 @@ def gradient_descent_reg(X, y, weights, learning_rate, iterations, lambda_):
     """L2正則化を含む勾配降下法"""
     m = len(y)
     cost_history = []
-    for i in range(iterations):  # Modified line
+    for i in range(iterations):
         h = sigmoid(X @ weights)
         gradient = (X.T @ (h - y)) / m
         gradient[1:] += (lambda_ / m) * weights[1:]  # バイアス項は正則化しない
@@ -59,4 +59,6 @@ def model(X_train, y_train, X_valid, params):
     # 検証データセットに対する予測
     y_pred = predict(X_valid_norm, weights)
 
-    return y_pred.astype(np.int), cost_history  # Ensure y_pred is explicitly cast to a NumPy array with integer type
+    return y_pred, cost_history
+
+

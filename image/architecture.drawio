@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="9aL8Li8Np5pivJQNght9" name="ページ1">
-        <mxGraphModel dx="1710" dy="2279" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="1629" dy="1993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -97,9 +97,6 @@
                 <mxCell id="32" value="エラー&lt;br&gt;ログ" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
                     <mxGeometry x="470" y="430" width="60" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="LLM" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FF3333;" parent="1" vertex="1">
-                    <mxGeometry x="670" y="472.5" width="80" height="45" as="geometry"/>
-                </mxCell>
                 <mxCell id="35" value="実行環境（Docker）" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF3333;" parent="1" vertex="1">
                     <mxGeometry x="320" y="100" width="170" height="30" as="geometry"/>
                 </mxCell>
@@ -117,9 +114,6 @@
                 </mxCell>
                 <mxCell id="38" value="必要なライブラリを&lt;br&gt;インストール" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF3333;" parent="1" vertex="1">
                     <mxGeometry x="545" y="400" width="150" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="39" value="コードの修正" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF3333;" parent="1" vertex="1">
-                    <mxGeometry x="550" y="480" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="" style="shape=flexArrow;endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -142,11 +136,17 @@
                         <mxPoint x="260" y="49.5" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="45" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                <mxCell id="45" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="550" y="480" as="sourcePoint"/>
                         <mxPoint x="650" y="480" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="LLM" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="472.5" width="80" height="37.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;div&gt;ファイルの修正&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="545" y="487.5" width="110" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
