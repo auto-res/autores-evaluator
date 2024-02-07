@@ -1,5 +1,9 @@
 # AutoRes Evaluator
 
+## Architecture
+
+![ロゴ1](images/architecture.png)
+
 
 ## How to use
 - Install

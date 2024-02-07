@@ -59,6 +59,6 @@ def model(X_train, y_train, X_valid, params):
     # 検証データセットに対する予測
     y_pred = predict(X_valid_norm, weights)
 
-    return y_pred, cost_history
+    return y_pred
 
 
