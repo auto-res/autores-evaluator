@@ -1,5 +1,11 @@
 # AutoRes Evaluator
 
+<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/example/logistc_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+## Architecture
+
+![ロゴ1](images/image.png)
+
 
 ## How to use
 - Install
