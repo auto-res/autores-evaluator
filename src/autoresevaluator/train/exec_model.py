@@ -21,12 +21,13 @@ def exec_model(copy_file_path, X_train, y_train, X_test, params):
                 raise model_logger.error("y_pred must be a one-dimensional array.")
             return y_pred
         except Exception as error:
+            model_logger.error(f'Exec Error: {error}', exc_info=True)
+            # モデル修正にすべてのエラー情報を渡すための処理
             exc_type, exc_value, exc_traceback = sys.exc_info()
             traceback_details = traceback.format_exception(exc_type, exc_value, exc_traceback)
-            model_logger.error(f'Exec Error: {error}', exc_info=True)
-            retry_count += 1  # 試行回数を1増やす
-            #codefix(copy_file_path, error)
             codefix(copy_file_path, traceback_details)
+
+            retry_count += 1  
             if retry_count >= retry_limit:
                 model_logger.error("試行回数が上限に達しました")
 
