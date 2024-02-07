@@ -1,6 +1,6 @@
 # AutoRes Evaluator
 
-<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/example/logistc_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/example/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ## Architecture
 
