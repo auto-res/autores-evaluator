@@ -35,7 +35,7 @@ def model(X_train, y_train, X_valid, params):
     weights = np.zeros(X_train.shape[1])
 
     # モデルの学習
-    weights, cost_history = gradient_descent(X_train, y_train, weights, params["learning_rate"], params["iterations"])
+    weights, cost_history = gradient_descent(X_train, y_train, weights, params["learning_rate"], int(params["iterations"]))  # Modified line
 
     # 検証データセットに対する予測
     y_pred = predict(X_valid, weights)
