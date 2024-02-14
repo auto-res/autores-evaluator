@@ -12,4 +12,6 @@ def titanic_data():
     df_encoded = df_encoded.rename(columns={'survived': 'target'})
     df_encoded = df_encoded.astype(float)
 
-    return df_encoded
+    data = None
+
+    return df_encoded, None
