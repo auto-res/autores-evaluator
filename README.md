@@ -30,17 +30,17 @@ params = {
     'verbosity': -1
 }
 
-
 are = AutoResEvaluator(
-    # task type
-    task_type='tabledata binary classification',
     # dataset name
     dataset_name='titanic',
     # model file path
-    model_path='/Users/tanakatouma/vscode/autores-evaluator/test/lightgbm_model.py',
+    model_path='/content/example.py',
+    # parameter
     params=params,
     # Metrics you want to maximize/minimize
-    valuation_index='pr_auc'
+    valuation_index='roc_auc',
+    # Where to store data
+    datasave_path=None
     )
 ```
 
@@ -55,3 +55,11 @@ are.exec()
 
 - model_error.log
     - File to write errors in model files
+
+
+# Examples
+- Prediction by logistic regression on the Titanic dataset
+<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+- Prediction by CNN on CIFAR10
+<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/cnn.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
