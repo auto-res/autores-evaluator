@@ -1,6 +1,16 @@
 # AutoRes Evaluator
 
+※ 追加で実装して欲しい機能や質問などがあれば以下のissuesから投稿をお願いします
+https://github.com/auto-res/autores-evaluator/issues/new
+
+
+## Examples
+- Prediction by logistic regression on the Titanic dataset
 <a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+- Prediction by CNN on CIFAR10
+<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/cnn.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 
 ## Architecture
 
@@ -55,11 +65,3 @@ are.exec()
 
 - model_error.log
     - File to write errors in model files
-
-
-# Examples
-- Prediction by logistic regression on the Titanic dataset
-<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
-- Prediction by CNN on CIFAR10
-<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/cnn.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
