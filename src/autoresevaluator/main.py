@@ -71,7 +71,7 @@ class AutoResEvaluator():
         result_logger.info(f'dataset name: {self.dataset_name}')
         result_logger.info(f'data type: {self.datatype}')
         result_logger.info(f'llm name: {self.llm_name}')
-        result_logger.info(f'model path: {self.model_path}')
+        result_logger.info(f'model path: {model_path}')
         result_logger.info(f'valuation_index: {self.valuation_index}')
         result_logger.info(f'objective: {self.objective}')
         self.copy_file_path = self._copy_file(model_path)

@@ -1,8 +1,8 @@
 from openai import OpenAI
 
-client = OpenAI()
 
 def _openai_model(prompt):
+    client = OpenAI()
     response = client.chat.completions.create(
             model='gpt-4-turbo-preview',
             messages=[
