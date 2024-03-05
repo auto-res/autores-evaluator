@@ -1,9 +1,8 @@
 import numpy as np
 from sklearn.metrics import f1_score, accuracy_score, log_loss
-from sklearn.metrics import roc_auc_score, precision_recall_curve, auc
+from sklearn.metrics import roc_auc_score
 from sklearn.metrics import precision_score, recall_score
 from sklearn.preprocessing import label_binarize
-from sklearn.utils.multiclass import unique_labels
 
 from ..utils.log_config import setup_logging
 

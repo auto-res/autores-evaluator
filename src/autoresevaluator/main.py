@@ -13,7 +13,7 @@ from .llm.anthropic import _anthropic_model
 from .train.optuna import exec_optuna
 import shutil
 
-from typing import Dict, Any, Callable
+from typing import Dict, Any
 
 result_logger, _ = setup_logging()
 

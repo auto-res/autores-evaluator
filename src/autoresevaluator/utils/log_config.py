@@ -1,4 +1,3 @@
-import time
 import logging
 
 def setup_logging():
