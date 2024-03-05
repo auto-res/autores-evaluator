@@ -6,11 +6,14 @@ https://github.com/auto-res/autores-evaluator/issues/new
 
 
 ## Examples
+- A+Bのデータセットを試す用
+<a href="https://colab.research.google.com/github/auto-res/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 - Prediction by logistic regression on the Titanic dataset
-<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/auto-res/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 - Prediction by CNN on CIFAR10
-<a href="https://colab.research.google.com/github/fuyu-quant/autores-evaluator/blob/main/examples/cnn.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/auto-res/autores-evaluator/blob/main/examples/cnn.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 ## Architecture
@@ -42,10 +45,10 @@ params = {
 }
 
 are = AutoResEvaluator(
+    # LLM name ('gpt-4-turbo-preview', 'gemini-pro', 'claude-3-opus-20240229')
+    llm_name='gpt-4-turbo-preview',
     # dataset name
     dataset_name='titanic',
-    # model file path
-    model_path='/content/example.py',
     # parameter
     params=params,
     # Metrics you want to maximize/minimize
@@ -57,7 +60,10 @@ are = AutoResEvaluator(
 
 - Execution
 ```python
-are.exec()
+# model file path
+model_path='/content/example.py',
+
+are.exec(model_path)
 ```
 
 ## Output
