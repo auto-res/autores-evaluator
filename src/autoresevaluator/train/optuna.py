@@ -4,6 +4,8 @@ import optuna
 from ..utils.log_config import setup_logging
 from tqdm.auto import tqdm
 
+from typing import Dict, Any, Callable
+
 optuna.logging.set_verbosity(optuna.logging.WARNING)
 
 result_logger, _ = setup_logging()
@@ -29,10 +31,11 @@ def _set_trial_params(trial, params):
     return optuna_params
 
 
-def _dataset_objective(copy_file_path, train_dataloader, metric, params, valuation_index):
+def _dataset_objective(llm_model, copy_file_path, train_dataloader, metric, params, valuation_index):
     def objective(trial):
         optuna_params = _set_trial_params(trial, params)
         average_index = pred_dataset(
+            llm_model,
             copy_file_path,
             train_dataloader,
             metric,
@@ -44,10 +47,11 @@ def _dataset_objective(copy_file_path, train_dataloader, metric, params, valuati
     return objective
 
 
-def _dataloader_objective(copy_file_path, train_dataloader, test_dataloader, metric, params, valuation_index):
+def _dataloader_objective(llm_model, copy_file_path, train_dataloader, test_dataloader, metric, params, valuation_index):
     def objective(trial):
         optuna_params = _set_trial_params(trial, params)
         average_index = pred_dataloader(
+            llm_model,
             copy_file_path,
             train_dataloader,
             test_dataloader,
@@ -61,20 +65,22 @@ def _dataloader_objective(copy_file_path, train_dataloader, test_dataloader, met
 
 
 def exec_optuna(
-        copy_file_path,
+        llm_model: Callable[[str], str],
+        copy_file_path: str,
         train_dataloader,
         test_dataloader,
-        metric,
-        params,
-        valuation_index,
-        objective,
-        datatype
-        ):
+        metric: str,
+        params: Dict[str, Any],
+        valuation_index: str,
+        objective: Callable[..., Any],
+        datatype: str
+        ) -> None:
     result_logger.info('------Optuna start------')
     n_trials = 100
     study = optuna.create_study(direction=objective)
     if datatype == 'table':
         objective = _dataset_objective(
+            llm_model,
             copy_file_path,
             train_dataloader,
             metric,
@@ -83,6 +89,7 @@ def exec_optuna(
             )
     else:
         objective = _dataloader_objective(
+            llm_model,
             copy_file_path,
             train_dataloader,
             test_dataloader,

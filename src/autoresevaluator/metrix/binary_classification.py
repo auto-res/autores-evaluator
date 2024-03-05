@@ -11,11 +11,17 @@ from sklearn.metrics import f1_score, accuracy_score, log_loss
 from sklearn.metrics import roc_auc_score, auc, precision_recall_curve
 from sklearn.metrics import precision_score, recall_score
 
+from numpy.typing import NDArray
+
 from ..utils.log_config import setup_logging
 
 result_logger, _ = setup_logging()
 
-def binary_classification(y_test, y_prob, valuation_index):
+def binary_classification(
+        y_test,
+        y_prob: NDArray[np.float64],
+        valuation_index: str
+        ):
     threshold = 0.5
     y_pred = np.where(np.array(y_prob) > threshold, 1, 0)
     f1 = f1_score(y_test, y_pred)

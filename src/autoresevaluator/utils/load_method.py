@@ -1,8 +1,8 @@
 import importlib.util
 import sys
 import traceback
-from ..utils.codefix import codefix
-from ..utils.log_config import setup_logging
+from .codefix import codefix
+from .log_config import setup_logging
 
 _, model_logger = setup_logging()
 

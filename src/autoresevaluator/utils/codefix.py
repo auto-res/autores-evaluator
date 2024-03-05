@@ -1,12 +1,9 @@
-from .openai_model import _openai_model
 from .log_config import setup_logging
 
 _, model_logger = setup_logging()
 
-def codefix(copy_file_path, error):
+def codefix(llm_model, copy_file_path, error):
     model_logger.info('------Codefix------')
-
-    model_name = 'gpt-4-turbo-preview'
 
     with open(copy_file_path, 'r') as file:
         content = file.read()
@@ -26,7 +23,7 @@ def codefix(copy_file_path, error):
         error=error
         )
 
-    output = _openai_model(model_name, input, seed = 3665)
+    output = llm_model(input)
     model_logger.info(f'output: {output}')
 
     with open(copy_file_path, 'w') as file:
