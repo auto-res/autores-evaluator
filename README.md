@@ -7,7 +7,7 @@ https://github.com/auto-res/autores-evaluator/issues/new
 
 ## Examples
 - A+Bのデータセットを試す用
-<a href="https://colab.research.google.com/github/auto-res/autores-evaluator/blob/main/examples/A+B.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/auto-res/autores-evaluator/blob/main/examples/A_B.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 - Prediction by logistic regression on the Titanic dataset
 <a href="https://colab.research.google.com/github/auto-res/autores-evaluator/blob/main/examples/logistic_regression.ipynb" target="_blank" rel="noopener noreferrer"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
