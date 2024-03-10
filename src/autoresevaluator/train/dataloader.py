@@ -9,7 +9,7 @@ result_logger, model_logger = setup_logging()
 
 
 def _exec_model(llm_model, copy_file_path, train_dataloader, test_dataloader, params):
-    result_logger.info('------exec model------')
+    result_logger.info("------exec model------")
     retry_limit = 10
     retry_count = 0
 
@@ -22,11 +22,13 @@ def _exec_model(llm_model, copy_file_path, train_dataloader, test_dataloader, pa
             return y_pred
 
         except Exception as error:
-            model_logger.error(f'Exec Error: {error}', exc_info=True)
+            model_logger.error(f"Exec Error: {error}", exc_info=True)
 
             # モデル修正にすべてのエラー情報を渡すための処理
             exc_type, exc_value, exc_traceback = sys.exc_info()
-            traceback_details = traceback.format_exception(exc_type, exc_value, exc_traceback)
+            traceback_details = traceback.format_exception(
+                exc_type, exc_value, exc_traceback
+            )
             codefix(llm_model, copy_file_path, traceback_details)
 
             retry_count += 1
@@ -34,14 +36,24 @@ def _exec_model(llm_model, copy_file_path, train_dataloader, test_dataloader, pa
                 model_logger.error("試行回数が上限に達しました")
 
     if retry_count < retry_limit:
-        model_logger.error('処理が成功し、ループを終了しました')
+        model_logger.error("処理が成功し、ループを終了しました")
     else:
-        model_logger.error('最大試行回数を超えましたが、処理は成功しませんでした')
+        model_logger.error("最大試行回数を超えましたが、処理は成功しませんでした")
 
 
-def pred_dataloader(llm_model, copy_file_path, train_dataloader, test_dataloader, metric, params, valuation_index):
-    result_logger.info('------pred dataloader------')
-    y_pred = _exec_model(llm_model, copy_file_path, train_dataloader, test_dataloader, params)
+def pred_dataloader(
+    llm_model,
+    copy_file_path,
+    train_dataloader,
+    test_dataloader,
+    metric,
+    params,
+    valuation_index,
+):
+    result_logger.info("------pred dataloader------")
+    y_pred = _exec_model(
+        llm_model, copy_file_path, train_dataloader, test_dataloader, params
+    )
 
     y_true = []
     for data in test_dataloader:
@@ -51,5 +63,3 @@ def pred_dataloader(llm_model, copy_file_path, train_dataloader, test_dataloader
 
     index = metric(y_true, y_pred, valuation_index)
     return index
-
-

@@ -25,11 +25,12 @@ class Net(nn.Module):
         x = self.fc3(x)
         return x
 
+
 def train(trainloader, params):
     net = Net()
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=params['lr'], momentum=0.9)
+    optimizer = optim.SGD(net.parameters(), lr=params["lr"], momentum=0.9)
 
     for epoch in range(1):  # データセットを複数回繰り返して学習
         running_loss = 0.0
@@ -48,10 +49,11 @@ def train(trainloader, params):
 
             # 統計を表示
             running_loss += loss.item()
-            if i % 2000 == 1999:    # 2000ミニバッチごとに表示
-                #print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
+            if i % 2000 == 1999:  # 2000ミニバッチごとに表示
+                # print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
                 running_loss = 0.0
     return net
+
 
 def test(net, testloader):
     all_outputs = []
@@ -66,6 +68,7 @@ def test(net, testloader):
 
     all_outputs_np = np.array(all_outputs)
     return all_outputs_np
+
 
 def model(trainloader, testloader, params):
     net = train(trainloader, params)

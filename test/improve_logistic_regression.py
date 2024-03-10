@@ -1,7 +1,9 @@
 import numpy as np
 
+
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
+
 
 def feature_normalize(X):
     """特徴量の正規化"""
@@ -10,12 +12,16 @@ def feature_normalize(X):
     X_norm = (X - mu) / sigma
     return X_norm, mu, sigma
 
+
 def compute_cost_reg(X, y, weights, lambda_):
     """正則化されたコスト関数"""
     m = len(y)
     h = sigmoid(X @ weights)
-    cost = -(1/m) * np.sum(y * np.log(h) + (1 - y) * np.log(1 - h)) + (lambda_ / (2*m)) * np.sum(weights[1:] ** 2)
+    cost = -(1 / m) * np.sum(y * np.log(h) + (1 - y) * np.log(1 - h)) + (
+        lambda_ / (2 * m)
+    ) * np.sum(weights[1:] ** 2)
     return cost
+
 
 def gradient_descent_reg(X, y, weights, learning_rate, iterations, lambda_):
     """L2正則化を含む勾配降下法"""
@@ -36,9 +42,11 @@ def gradient_descent_reg(X, y, weights, learning_rate, iterations, lambda_):
 
     return weights, cost_history
 
+
 def predict(X, weights):
     predictions = sigmoid(X @ weights) >= 0.5
     return predictions.astype(int)
+
 
 def model(X_train, y_train, X_valid, params):
     # 特徴量の正規化
@@ -54,11 +62,16 @@ def model(X_train, y_train, X_valid, params):
 
     # モデルの学習
     lambda_ = params["lambda"]  # 正則化パラメータ
-    weights, cost_history = gradient_descent_reg(X_train_norm, y_train, weights, params["learning_rate"], params["iterations"], lambda_)
+    weights, cost_history = gradient_descent_reg(
+        X_train_norm,
+        y_train,
+        weights,
+        params["learning_rate"],
+        params["iterations"],
+        lambda_,
+    )
 
     # 検証データセットに対する予測
     y_pred = predict(X_valid_norm, weights)
 
     return y_pred
-
-
