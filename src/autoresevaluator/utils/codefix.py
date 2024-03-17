@@ -1,6 +1,6 @@
-from .log_config import setup_logging
+from ...utils.log_config import setup_logging
 
-_, model_logger = setup_logging()
+_, _, model_logger = setup_logging()
 
 
 def codefix(llm_model, copy_file_path, error):

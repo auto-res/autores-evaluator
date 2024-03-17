@@ -1,4 +1,4 @@
-from .utils.log_config import setup_logging
+from ..utils.log_config import setup_logging
 
 from .dataset.tabledata.titanic import titanic_data
 from .dataset.cv.cifar10 import cifar10_data
@@ -12,16 +12,16 @@ from .metrix.multiclass_classificatio import (
     multiclass_classification_objective,
 )
 
-from .llm.openai import _openai_model
-from .llm.google import _googel_model
-from .llm.anthropic import _anthropic_model
+from ..utils.llm.openai import _openai_model
+from ..utils.llm.google import _googel_model
+from ..utils.llm.anthropic import _anthropic_model
 
 from .train.optuna import exec_optuna
 import shutil
 
 from typing import Dict, Any
 
-result_logger, _ = setup_logging()
+_, result_logger, _ = setup_logging()
 
 
 class AutoResEvaluator:

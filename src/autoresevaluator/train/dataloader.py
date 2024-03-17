@@ -1,11 +1,11 @@
 import numpy as np
 from ..utils.codefix import codefix
-from ..utils.log_config import setup_logging
+from ...utils.log_config import setup_logging
 from ..utils.load_method import load_method_from_path
 import traceback
 import sys
 
-result_logger, model_logger = setup_logging()
+_, result_logger, model_logger = setup_logging()
 
 
 def _exec_model(llm_model, copy_file_path, train_dataloader, test_dataloader, params):

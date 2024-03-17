@@ -4,9 +4,9 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import precision_score, recall_score
 from sklearn.preprocessing import label_binarize
 
-from ..utils.log_config import setup_logging
+from ...utils.log_config import setup_logging
 
-result_logger, _ = setup_logging()
+_, result_logger, _ = setup_logging()
 
 
 def multiclass_classification(y_test, y_prob, valuation_index):

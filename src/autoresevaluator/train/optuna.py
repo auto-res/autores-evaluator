@@ -1,14 +1,14 @@
 from .dataset import pred_dataset
 from .dataloader import pred_dataloader
 import optuna
-from ..utils.log_config import setup_logging
+from ...utils.log_config import setup_logging
 from tqdm.auto import tqdm
 
 from typing import Dict, Any, Callable
 
 optuna.logging.set_verbosity(optuna.logging.WARNING)
 
-result_logger, _ = setup_logging()
+_, result_logger, _ = setup_logging()
 
 
 def _set_trial_params(trial, params):

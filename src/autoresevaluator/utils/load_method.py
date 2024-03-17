@@ -2,9 +2,9 @@ import importlib.util
 import sys
 import traceback
 from .codefix import codefix
-from .log_config import setup_logging
+from ...utils.log_config import setup_logging
 
-_, model_logger = setup_logging()
+_, _, model_logger = setup_logging()
 
 
 def load_method_from_path(copy_file_path, method_name="model"):

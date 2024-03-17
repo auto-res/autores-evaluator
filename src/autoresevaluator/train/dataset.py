@@ -2,11 +2,11 @@ import numpy as np
 import traceback
 import sys
 from sklearn.model_selection import KFold
-from ..utils.log_config import setup_logging
+from ...utils.log_config import setup_logging
 from ..utils.codefix import codefix
 from ..utils.load_method import load_method_from_path
 
-result_logger, model_logger = setup_logging()
+_, result_logger, model_logger = setup_logging()
 
 
 def _exec_model(llm_model, copy_file_path, X_train, y_train, X_test, params):
